@@ -11,10 +11,10 @@ pipeline {
 		stage('Build'){			
 			steps {bat "mvn clean install -DskipTests"}		
 		}	
-		stage('Pre-Deploy'){
-			steps{bat "docker rm -f auth-cntr"
-						"docker rmi -f auth-img"}
-		}	
+		// stage('Pre-Deploy'){
+		// 	steps{bat "docker rm -f auth-cntr"
+		// 				"docker rmi -f auth-img"}
+		// }	
 		stage('Deploy') {			
 			steps { bat "docker build -t auth-img ."			    
 			            bat "docker run -p 9761:8761 -d --name auth-cntr --network my-net auth-img"}		
