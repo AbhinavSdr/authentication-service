@@ -17,7 +17,7 @@ pipeline {
 		// }	
 		stage('Deploy') {			
 			steps { bat "docker build -t auth-img ."			    
-			            bat "docker run -p 9761:8761 -d --name auth-cntr --network my-net auth-img"}		
+			            bat "docker run -p 9090:8090 -d --name auth-cntr --network my-net auth-img"}		
 		}		
 	}
 }
